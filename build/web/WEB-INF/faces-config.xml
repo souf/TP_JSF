@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="1.2" 
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+
+    <navigation-rule>
+        <from-view-id>/index.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>Login</from-outcome>
+            <to-view-id>/connexion.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Subscribe</from-outcome>
+            <to-view-id>/inscription.jsp</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>Entete</from-outcome>
+            <to-view-id>/menu.jsp</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/connexion.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>Home</from-outcome>
+            <to-view-id>/index.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+      <navigation-rule>
+        <from-view-id>/inscription.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>Home</from-outcome>
+            <to-view-id>/index.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Login</from-outcome>
+            <to-view-id>/connexion.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+      <navigation-rule>
+        <from-view-id>/menu.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>Home</from-outcome>
+            <to-view-id>/index.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <application>
+        <locale-config>
+            <default-locale>fr</default-locale>
+            <supported-locale>ar</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>org.ubo.ApplicationMessages</base-name>
+            <var>AppMessages</var>
+        </resource-bundle>
+    </application>
+
+    <managed-bean>
+        <managed-bean-name>locale</managed-bean-name>
+        <managed-bean-class>org.ubo.controller.LocaleConfig</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>login</managed-bean-name>
+        <managed-bean-class>org.ubo.controller.Login</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>user</managed-bean-name>
+        <managed-bean-class>org.ubo.model.User</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+     <managed-bean>
+        <managed-bean-name>register</managed-bean-name>
+        <managed-bean-class>org.ubo.controller.Inscription</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+
+</faces-config>
